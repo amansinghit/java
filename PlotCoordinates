@@ -1,0 +1,87 @@
+package nonprimitive;
+
+//trail starting of java 
+import java.util.*;
+
+public class Class2D {
+	protected int x;
+	protected int y;
+
+	public Class2D() {
+		System.out.println("class 2d contr called");
+	}
+
+	public Class2D(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public String showCordinates() {
+		String s1 = Integer.toString(this.x);
+		String s2 = Integer.toString(this.y);
+		String s = s1 + s2;
+		return s;
+	}
+
+	public boolean isEqual(Class2D d) {
+		if ((this.x == d.x) && (this.y == d.y))
+			return true;
+		else
+			return false;
+	}
+	public void showvalue() {
+		System.out.println(x+" "+y);
+	}
+}	
+//////////////////////////////////Driver
+	package nonprimitive;
+
+import java.util.*;
+
+public class Class2Ddriver {
+
+	public static void main(String[] args) {
+		Class2D b = new Class2D();
+		Scanner sc = new Scanner(System.in);
+//		System.out.println("enter cordinates");	
+//		Class2D obj=new Class2D(sc.nextInt(),sc.nextInt()); 
+//		Class2D obj1=new Class2D(sc.nextInt(),sc.nextInt()); 
+//        boolean b=obj1.isEqual(obj);
+//         System.out.println(b);
+		System.out.println("How many points to plot ");
+		Class2D[] arr = new Class2D[sc.nextInt()];
+		System.out.println(" enter cordinates ");
+		// input points(having coordinates)
+		for (int i = 0; i < arr.length-2; i++) {
+			arr[i] = new Class2D(sc.nextInt(), sc.nextInt());
+		}
+		for (Class2D p : arr)
+			if (p!=null){
+			p.showvalue();}
+
+		// cheak value at index if null then insert value(not done yet)
+		System.out.println("Enter   codinates and index that we have to plot");
+		int index = sc.nextInt();
+		if (index < (arr.length) && index > 0) {
+			if (arr[index] == null) {
+				System.out.println("Enter coordinates");
+				arr[index] = new Class2D(sc.nextInt(), sc.nextInt());
+			} else {
+				System.out.println("coordinates are already plotted");
+			}
+
+		}
+
+		else {
+
+			System.out.println("Array index is not valid");
+		}
+
+		arr[index].showvalue();
+sc.close();
+	}
+
+}
+
+	
+
